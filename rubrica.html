@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="rubrica.js"></script>
+    <link rel="stylesheet" href="rubrica.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Rubrica</title>
+
+
+</head>
+
+
+<body>
+    <div class="sfondoModale" id="aggiungiContatto">
+        <div class="buttonExit" onclick="chiudiPopUp()" >
+            <i class="fa fa-remove" style="font-weight: 400;font-size:30px;color:#F24E1E ;"></i>
+        </div>
+        <div class="popUp">
+            <div style="flex:5; ">
+                <h2 style="text-align: center;"> Aggiungi Contatto</h2>
+
+                <h3 style="margin-left: 30px;font-size: 26px;">Nome</h3>
+                <input class="inputModale" type="text" placeholder="NOME" id="inputNome">
+                <h3 style="margin-left: 30px;font-size: 26px;">Cognome</h3>
+                <input class="inputModale" type="text" placeholder="COGNOME" id="inputCognome">
+                <h3 style="margin-left: 30px; font-size: 26px;">Numero di Telefono</h3>
+                <input class="inputModale" type="text" placeholder="NUMERO DI TELEFONO" id="inputTelefono">
+            </div>
+            <div style="flex:1; display: flex; align-items: center;justify-content: center;">
+                <button class="buttonSave" id="buttonSave" onclick="aggiungiContatti()"  type="button">SALVA</button>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="principale">
+        <div class="section_proprietario">
+            <div class="proprietario">
+                <img src="https://lifestylemadeinitaly.it/wp-content/uploads/Creazione-avatar-FB.jpg"
+                    style="margin-bottom: 15px;width: 80px;height: 80px; border-radius: 100%; object-fit: cover;">
+                <h1 style="margin-bottom: 15px;font-weight: 500;margin-left: 15px;">Alina Johnson</h1>
+            </div>
+            <div class="section_search">
+                <div class="buttonSearch">
+                    <input class="input_search" type="text" placeholder="Search">
+
+                </div>
+                <div class="container_icon" onclick="apriPopUp()">
+                    <i class="fa fa-plus-square" style="font-size:34px; margin-top: 32px; margin-left: 20px;"></i>
+
+                </div>
+            </div>
+        </div>
+        <div class="section_contatti" id="sezioneContatti">
+
+            
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+
+</body>
+
+</html>
