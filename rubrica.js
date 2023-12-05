@@ -1,4 +1,13 @@
+
+
+
+
 let id = 0
+
+
+
+
+
 
 function apriPopUp() {
     document.getElementById("aggiungiContatto").style.display = "flex"
@@ -7,6 +16,9 @@ function apriPopUp() {
 function chiudiPopUp() {
     document.getElementById("aggiungiContatto").style.display = "none"
 }
+
+let contatti = [];
+
 
 
 function aggiungiContatti() {
@@ -29,6 +41,17 @@ function aggiungiContatti() {
         }
         return;
     }
+
+
+    let contatto = {
+        nome: nome,
+        cognome: cognome,
+        numero: telefono,
+        indice: id
+    }
+
+    contatti.push(contatto);
+
 
     document.getElementById("sezioneContatti").innerHTML +=
         `
@@ -69,6 +92,52 @@ function aggiungiContatti() {
 
 }
 
+console.log(contatti)
+
+
+function ricercaContatti() {
+    let inputSearch = document.getElementById("searchInput").value;
+
+
+    if (!inputSearch) {
+        for (let index = 0; index < contatti.length; index++) {
+            document.getElementById(`${index}-contatto`).style.display = "flex";
+
+        }
+        return;
+    }
+    console.log(inputSearch)
+
+    let listaContatti = contatti.filter((contatti) => {
+        return contatti.nome.startsWith(inputSearch) || contatti.cognome.startsWith(inputSearch) || contatti.numero.startsWith(inputSearch)
+    })
+
+    console.log(listaContatti)
+
+    let listaId = listaContatti.map((contatti) => {
+        return contatti.indice;
+    })
+
+    console.log(listaId)
+
+    for (let indice = 0; indice < contatti.length; indice++) {
+
+
+
+
+        let identificativo = document.getElementById(`${indice}-contatto`).id.split("-")[0];
+
+
+        if (!listaId.includes(parseInt(identificativo))) {
+            document.getElementById(`${indice}-contatto`).style.display = "none";
+
+        }
+    }
+
+
+}
+
+
 function apriModifica(id) {
 
 
@@ -95,17 +164,17 @@ function confermaModifica(id) {
     let inputCognome = document.getElementById(`${id}-modificaCognome`).value
     let inputTelefono = document.getElementById(`${id}-modificaTelefono`).value
 
-    document.getElementById(`${id}-nome`).innerHTML=inputNome
-    document.getElementById(`${id}-cognome`).innerHTML=inputCognome
-    document.getElementById(`${id}-telefono`).innerHTML=inputTelefono
+    document.getElementById(`${id}-nome`).innerHTML = inputNome
+    document.getElementById(`${id}-cognome`).innerHTML = inputCognome
+    document.getElementById(`${id}-telefono`).innerHTML = inputTelefono
 
 
     document.getElementById(`${id}-contatto`).style.display = "flex";
     document.getElementById(`${id}-modificaContatto`).style.display = "none";
-    
+
 }
 
-function eliminaContatto(id){
+function eliminaContatto(id) {
     document.getElementById(`${id}-contatto`).remove()
     document.getElementById(`${id}-modificaContatto`).remove()
 }
